@@ -1,24 +1,26 @@
 import Header from "./components/elements/Header";
 import {Route, Switch, BrowserRouter} from 'react-router-dom'
-import ScrumDashboard from './components/screens/ScrumDasboard'
-import AddScrum from './components/screens/AddScrum'
-import UpdateScrum from "./components/screens/UpdateScrum";
+import Dashboard from './components/screens/Dasboard'
+import Add from './components/screens/Add'
+import Update from "./components/screens/Update";
 
 
-export default function App() {
+function App() {
   return (
     <div className="App">
+      <BrowserRouter>
       <Header />
       <div className="my-main">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={ScrumDashboard} />
-          <Route exact path="/dashboard" component={ScrumDashboard} />
-          <Route path='/addscrum' component={AddScrum} />
-          <Route path='/updatescrum/:id' component={UpdateScrum} />
-          
+   
+      </div>
+      <Switch>
+          <Route exact path='/' component={Dashboard}/>
+          <Route path='/add/:addFor' component={Add} />
+          <Route path='/update/:updateFor/:id' component={Update} />
         </Switch>
       </BrowserRouter>
-      </div>
     </div>
-  )}
+  );
+}
+
+  export default App;
